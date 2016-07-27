@@ -20,12 +20,12 @@ public class GuiHologramButtonView : GuiView {
 	//---------------------------------------------
 
 	protected void GazeEntered() {
-		SetColour(Transition.OnEmissionColour);
+        LeanTween.color(gameObject, Transition.OnEmissionColour, Transition.Duration).setEase(Transition.TransitionType);
 	}
 
 	protected void GazeExited() {
-		SetColour(Transition.OffEmissionColour);
-	}
+        LeanTween.color(gameObject, Transition.OffEmissionColour, Transition.Duration).setEase(Transition.TransitionType);
+    }
 
     protected void OnSelect() {
         InvokeEvent(Selected);
@@ -72,6 +72,7 @@ public class GuiHologramButtonView : GuiView {
 		public string Property;
 		public Color OffEmissionColour;
 		public Color OnEmissionColour;
+        public LeanTweenType TransitionType;
 		public float Duration;
 	}
 }
