@@ -1,0 +1,4 @@
+﻿
+public class GuiHologramViewController : GuiViewController {
+
+}
