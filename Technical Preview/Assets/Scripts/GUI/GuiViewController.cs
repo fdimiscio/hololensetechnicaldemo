@@ -18,7 +18,7 @@ public class GuiViewController : CoreComponent {
 	//---------------------------------------------
 
 	protected void Awake() {
-		views = this.GetComponentsInChildren<GuiView> ();
+		views = GetComponentsInChildren<GuiView> ();
 		ShowOrHideAllViews (IsVisible);
 	}
 
@@ -43,5 +43,6 @@ public class GuiViewController : CoreComponent {
 		for (int i = 0; i < views.Length; ++i) {
 			views [i].ShowOrHide (shouldShow);
 		}
+        IsVisible = shouldShow;
 	}
 }

@@ -2,11 +2,17 @@
 
 public class GuiHologramButtonView : GuiView {
 
-	//---------------------------------------------
-	// Inspector Variables:
-	//---------------------------------------------
+    //---------------------------------------------
+    // Events:
+    //---------------------------------------------
 
-	public TransitionState Transition;
+    public event Eventhandler Selected;
+
+    //---------------------------------------------
+    // Inspector Variables:
+    //---------------------------------------------
+
+    public TransitionState Transition;
 	public Material Material;
 
 	//---------------------------------------------
@@ -20,6 +26,10 @@ public class GuiHologramButtonView : GuiView {
 	protected void GazeExited() {
 		SetColour(Transition.OffEmissionColour);
 	}
+
+    protected void OnSelect() {
+        InvokeEvent(Selected);
+    }
 
 	//---------------------------------------------
 	// Unity Methods:
@@ -38,6 +48,10 @@ public class GuiHologramButtonView : GuiView {
 	protected void OnMouseExit() {
 		GazeExited ();
 	}
+
+    protected void OnMouseDown() {
+        OnSelect();
+    }
 
 #endif
 

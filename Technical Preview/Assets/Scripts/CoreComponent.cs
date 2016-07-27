@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CoreComponent : MonoBehaviour {
 
@@ -10,4 +9,12 @@ public class CoreComponent : MonoBehaviour {
 	//---------------------------------------------
 
 	public delegate void Eventhandler();
+
+    //---------------------------------------------
+    // Delegates:
+    //---------------------------------------------
+
+    public void InvokeEvent(Eventhandler theEvent) {
+        if (theEvent != null) theEvent();
+    }
 }
