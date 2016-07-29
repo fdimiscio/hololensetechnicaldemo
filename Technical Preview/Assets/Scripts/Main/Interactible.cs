@@ -89,7 +89,10 @@ public class Interactible : CoreComponent {
     // Public Methods: DEV
     //---------------------------------------------
 
-    protected void PerformManipulationUpdate(Vector3 position) {
+    public void MoveInteractible(Vector3 position) {
+
+        // todo: will get rid of all this and simplify, handle the rotation in GUI.
+
         if (GestureManager.Instance.IsManipulating) {
             /* TODO: DEVELOPER CODING EXERCISE 4.a */
 
@@ -106,9 +109,16 @@ public class Interactible : CoreComponent {
         }
     }
 
+    public void RotateInteractible(float rotation) {
+        transform.localRotation = Quaternion.Euler(0, rotation, 0);
+    }
+
+    public void ScaleInteractible(float scale) {
+        transform.localScale = new Vector3(scale, scale, scale);
+    }
+
+    // todo: organise this...
     public float MovementSpeed = 1.5f;
-
-
     private Vector3 manipulationPreviousPosition;
 
     //---------------------------------------------

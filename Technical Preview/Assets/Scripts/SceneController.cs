@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+
 public class SceneController : CoreComponent {
 
     //---------------------------------------------
@@ -54,5 +55,20 @@ public class SceneController : CoreComponent {
     private void GuiController_TransformationComplete() {
         // are we doing this in GUI or when things have finished moving? firm up with Franco...
         InteractiblesController.EnterStateInactive();
+    }
+
+    // todo: actually set up these GUI Elements.
+
+    private void GuiController_MoveBarValueChanged(Vector3 newPosition) {
+        int index = 0; // for now we only have one interactible, so send index 0. todo: get index of interactible we wish to move.
+        InteractiblesController.MoveInteractable(newPosition, index);
+    }
+
+    private void GuiController_RotateBarValueChanged(float newRotation) {
+
+    }
+
+    private void GuiController_ScaleBarValueChanged(float uniformScale) {
+
     }
 }

@@ -46,6 +46,18 @@ public class InteractiblesController : MonoBehaviour {
         EnterTransformState(TransformStates.Inactive);
     }
 
+    public void MoveInteractable(Vector3 newPosition, int index) {
+        Interactibles[index].MoveInteractible(newPosition);
+    }
+
+    public void RotateInteractible(float newRotation, int index) {
+        // new y rotation.
+    }
+
+    public void ScaleInteractible(float newScale, int index) {
+        // new uniform scale.
+    }
+
     //---------------------------------------------
     // State Methods:
     //---------------------------------------------
