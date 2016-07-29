@@ -89,10 +89,11 @@
      <Compile Include="Assets\Scripts\GUI\GuiController.cs" />
      <Compile Include="Assets\Scripts\GUI\GuiView.cs" />
      <Compile Include="Assets\Scripts\GUI\GuiViewController.cs" />
-     <Compile Include="Assets\Scripts\GestureAction.cs" />
-     <Compile Include="Assets\Scripts\Interactible.cs" />
      <Compile Include="Assets\Scripts\InteractibleAction.cs" />
      <Compile Include="Assets\Scripts\InteractibleManager.cs" />
+     <Compile Include="Assets\Scripts\Main\GestureAction.cs" />
+     <Compile Include="Assets\Scripts\Main\Interactible.cs" />
+     <Compile Include="Assets\Scripts\Main\InteractiblesController.cs" />
      <Compile Include="Assets\Scripts\ObjectManager.cs" />
      <Compile Include="Assets\Scripts\SceneController.cs" />
      <None Include="Assets\Libraries\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />

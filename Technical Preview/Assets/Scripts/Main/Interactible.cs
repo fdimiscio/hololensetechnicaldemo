@@ -30,14 +30,12 @@ public class Interactible : CoreComponent {
     // Unity Methods:
     //---------------------------------------------
 
-    protected void Start()
-    {
+    protected void Start() {
         defaultMaterials = GetComponent<Renderer>().materials;
 
         // Add a BoxCollider if the interactible does not contain one.
         Collider collider = GetComponentInChildren<Collider>();
-        if (collider == null)
-        {
+        if (collider == null) {
             gameObject.AddComponent<BoxCollider>();
         }
 
@@ -88,14 +86,38 @@ public class Interactible : CoreComponent {
     }
 
     //---------------------------------------------
+    // Public Methods: DEV
+    //---------------------------------------------
+
+    protected void PerformManipulationUpdate(Vector3 position) {
+        if (GestureManager.Instance.IsManipulating) {
+            /* TODO: DEVELOPER CODING EXERCISE 4.a */
+
+            Vector3 moveVector = Vector3.zero;
+            // 4.a: Calculate the moveVector as position - manipulationPreviousPosition.
+            moveVector = position - manipulationPreviousPosition;
+            // 4.a: Update the manipulationPreviousPosition with the current position.
+            manipulationPreviousPosition = position;
+
+
+            // 4.a: Increment this transform's position by the moveVector.
+            //transform.position += moveVector;
+            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime);
+        }
+    }
+
+    public float MovementSpeed = 1.5f;
+
+
+    private Vector3 manipulationPreviousPosition;
+
+    //---------------------------------------------
     // Private Methods:
     //---------------------------------------------
 
-    private void EnableAudioHapticFeedback()
-    {
+    private void EnableAudioHapticFeedback() {
         // If this hologram has an audio clip, add an AudioSource with this clip.
-        if (TargetFeedbackSound != null)
-        {
+        if (TargetFeedbackSound != null) {
             audioSource = GetComponent<AudioSource>();
             if (audioSource == null)
             {

@@ -12,24 +12,12 @@ public class SceneController : CoreComponent {
         // will need these states or similar when the the trainer modes are implemented.
     }*/ 
 
-    public enum TransformStates {
-        Inactive,
-        Moving,
-        Rotating,
-        Scaling
-    }
-
     //---------------------------------------------
     // Inspector Variables:
     //---------------------------------------------
 
     public GuiController GuiController;
-
-    //---------------------------------------------
-    // Private Variables:
-    //---------------------------------------------
-
-    private TransformStates transformState;
+    public InteractiblesController InteractiblesController;
 
     //---------------------------------------------
     // Unity Methods:
@@ -52,44 +40,19 @@ public class SceneController : CoreComponent {
     //---------------------------------------------
 
     private void GuiController_MoveButtonSelected() {
-        EnterTransformState(TransformStates.Moving);
+        InteractiblesController.EnterStateMove();
     }
 
     private void GuiController_ResizeButtonSelected() {
-        EnterTransformState(TransformStates.Scaling);
+        InteractiblesController.EnterStateResize();
     }
 
     private void GuiController_RotateButtonSelected() {
-        EnterTransformState(TransformStates.Rotating);
+        InteractiblesController.EnterStateRotate();
     }
 
     private void GuiController_TransformationComplete() {
         // are we doing this in GUI or when things have finished moving? firm up with Franco...
-        EnterTransformState(TransformStates.Inactive);
-    }
-
-    //---------------------------------------------
-    // State Methods:
-    //---------------------------------------------
-
-    private void EnterTransformState(TransformStates newState) {
-        // break out if already in the desired state...
-        if (transformState == newState) return;
-        transformState = newState;
-
-        switch (transformState) {
-            case TransformStates.Inactive:
-
-                break;
-            case TransformStates.Moving:
-
-                break;
-            case TransformStates.Rotating:
-
-                break;
-            case TransformStates.Scaling:
-
-                break;
-        }
+        InteractiblesController.EnterStateInactive();
     }
 }
